@@ -1,0 +1,52 @@
+<div class="container wrapper">
+  <div class="row my-3">
+    <div class="col-10">
+      <a routerLink="/tracking" style="margin: 15px">
+        <img *ngIf="tasks?.length > 0" src="assets/clock-fill.svg"
+             style="cursor: pointer"
+             class="float-right text-primary" height="30" width="30"/>
+      </a>
+    </div>
+    <div class="col-2">
+      <a routerLink="/history" style="margin: 15px">
+        <img *ngIf="tasks?.length > 0" src="assets/clock-history.svg"
+             style="cursor: pointer"
+             class="float-left text-primary" height="30" width="30"/>
+      </a>
+    </div>
+  </div>
+  <div class="row mt-2">
+   <div class="col-12 text-center">
+     <h5>Projects  <span (click)="addingProject = !addingProject" style="cursor: pointer" class="badge badge-secondary">Add</span></h5>
+     <div class="my-3 new-project" *ngIf="addingProject">
+       <input #newProject type="text" placeholder="Project title">
+       <button class="btn btn-outline-primary" (click)="addProject(newProject.value)">add</button>
+     </div>
+     <div class="chips">
+       <div class="chip" *ngFor="let p of projects">
+         {{ p.title }}
+       </div>
+     </div>
+   </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12 text-center">
+      <h5> Tasks <span (click)="addingTask = !addingTask" style="cursor: pointer" class="badge badge-secondary">Add</span></h5>
+      <div class="my-3" *ngIf="addingTask">
+        <select #taskProject>
+          <option *ngFor="let p of projects" value="{{ p._id }}">{{ p.title }}</option>
+        </select>
+        <input type="text" #taskIdentifier placeholder="Task Identifier">
+        <button class="btn btn-outline-primary" (click)="addTask(taskIdentifier.value, taskProject.value)">add</button>
+      </div>
+      <div class="tasks-chips">
+        <div class="task-chip" *ngFor="let t of tasks">
+          <p class="project">{{ t.project.title }}</p>
+          <p class="id">{{ t.identifier }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

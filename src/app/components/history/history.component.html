@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="text-center">
+    <select class="my-5 mx-3" #showing (change)="show(showing.value)">
+      <option value="today">Today</option>
+      <option value="week">Week</option>
+      <option value="month">Month</option>
+    </select>
+
+    <p *ngIf="history"> {{ history.from | date:"dd/MM/yyyy" }} - {{ history.to | date:"dd/MM/yyyy" }}</p>
+
+  </div>
+
+  <table class="table" *ngIf="history?.trackedTimes?.length > 0">
+    <thead>
+    <tr>
+      <th scope="col">Proj</th>
+      <th scope="col">#task</th>
+      <th scope="col">date</th>
+      <th scope="col"> time </th>
+      <th scope="col">hh:mm:ss</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of history.trackedTimes">
+      <th scope="row">{{ t.task.project.title }}</th>
+      <th scope="row">{{ t.task.identifier }}</th>
+      <td>{{ t.startTime | date:"dd/MM/yyyy" }}</td>
+      <td *ngIf="t.endTime">{{ t.startTime | date:"hh:mm a" }} - {{ t.endTime | date:"hh:mm a" }}</td>
+      <td *ngIf="!t.endTime">{{ t.startTime | date:"hh:mm a" }} - N/A</td>
+      <td>{{ calcHours(t) }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

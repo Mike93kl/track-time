@@ -1,0 +1,40 @@
+.wrapper {
+  font-family: "Courier New", serif;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+  margin: 10px
+}
+
+.new-project {
+  display: inline-block;
+}
+
+.task-chip {
+  display: inline-table;
+  padding: 10px 10px 10px 10px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+  margin: 10px;
+  align-items: center;
+}
+
+.task-chip .project {
+  font-size: 0.8em;
+  margin: 10px
+}
+
+.task-chip .id {
+  font-size: 0.9em;
+  margin: 10px;
+}
+
+
