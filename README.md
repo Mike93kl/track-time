@@ -6,7 +6,7 @@
  * Copy - Paste the `.env.example` located in the `server` directory. 
  Rename it to `.env`.
  Change the `MONGO_URI=` line to `MONGO_URI=<YOUR MONGODB LINK>`
- 
+ * Run `install.sh`
  ### Run app
  
  `npm start`
