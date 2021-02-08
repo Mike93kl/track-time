@@ -26,8 +26,8 @@
       <th scope="row">{{ t.task.project.title }}</th>
       <th scope="row">{{ t.task.identifier }}</th>
       <td>{{ t.startTime | date:"dd/MM/yyyy" }}</td>
-      <td *ngIf="t.endTime">{{ t.startTime | date:"hh:mm a" }} - {{ t.endTime | date:"hh:mm a" }}</td>
-      <td *ngIf="!t.endTime">{{ t.startTime | date:"hh:mm a" }} - N/A</td>
+      <td *ngIf="t.endTime">{{ t.startTime | date:"hh:mm:ss a" }} - {{ t.endTime | date:"hh:mm:ss a" }}</td>
+      <td *ngIf="!t.endTime">{{ t.startTime | date:"hh:mm:ss a" }} - N/A</td>
       <td>{{ calcHours(t) }}</td>
     </tr>
     </tbody>
